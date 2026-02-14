@@ -1,0 +1,41 @@
+# ============================================
+# RUNTIME & PERFORMANCE
+# ============================================
+# Менеджер пакетов: рекомендуется использовать 'uv' для установки
+uvicorn[standard]==0.35.0  # ASGI сервер с поддержкой протоколов 2026 года
+
+# ============================================
+# CORE API (FastAPI Stack)
+# ============================================
+fastapi==0.115.11          # Стабильная ветка
+pydantic==2.11.0           # Версия с глубокой поддержкой типов Python 3.13
+pydantic-settings==2.8.0   # Secrets & Env management
+python-multipart==0.0.20   # Обработка форм
+
+# ============================================
+# DATA SCIENCE & ML (Polars-first)
+# ============================================
+polars[all]==1.21.0        # Основной движок данных (быстрее Pandas в разы)
+numpy==2.2.3               # NumPy 2.x — стандарт для 2026
+pandas[pyarrow]==2.2.3     # Для совместимости с legacy библиотеками
+scikit-learn==1.6.1        # ML алгоритмы
+skrub==0.7.1               # Мост между Polars и Scikit-learn
+joblib==1.4.2              # Сериализация моделей
+torch==2.6.0               # PyTorch (выбирайте +cuXXX для GPU в проде)
+pandera[polars]==0.22.1    # Валидация схем данных специально для Polars
+
+# ============================================
+# OBSERVABILITY & LOGGING (The New Standard)
+# ============================================
+# Logfire заменяет собой связку structlog + manual opentelemetry-sdk
+logfire[fastapi,sklearn,otlp]==0.32.0
+opentelemetry-api==1.30.0
+opentelemetry-instrumentation-httpx==0.51b0
+
+# ============================================
+# DEVELOPMENT & QUALITY
+# ============================================
+pytest==8.3.4
+pytest-asyncio==0.25.3
+ruff==0.9.6                # Линтер и форматтер (заменяет black, isort, flake8)
+mypy==1.15.0               # Статическая типизация
