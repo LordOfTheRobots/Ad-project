@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: collector-service
+
+  kafka:
+    enabled: true
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: collector-group
+      auto-offset-reset: earliest
+      max-poll-records: 500
+      enable-auto-commit: false
+    producer:
+      acks: all
+      retries: 3
+      batch-size: 16384
+      buffer-memory: 33554432
+    topics:
+      youtube: youtube-collector-topic
+      vk: vk-collector-topic
+      default: collector-default-topic
+
+collector:
+  type: youtube
+  config-path: classpath:collector-config.json

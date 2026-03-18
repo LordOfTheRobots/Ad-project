@@ -1,0 +1,26 @@
+{
+  "defaultType": "youtube",
+  "collectors": {
+    "youtube": {
+      "client": {
+        "class": "com.ad.webclient.YoutubeClient",
+        "baseUrl": "https://www.googleapis.com/youtube/v3/"
+      },
+      "collector": {
+        "class": "com.ad.collectorapi.YoutubeCollector"
+      },
+      "queryMaker": {
+        "class": "com.ad.query.YoutubeQueryMaker"
+      },
+      "params": {
+        "class": "com.ad.apiparams.YoutubeParams",
+        "builderMethod": "builder",
+        "properties": {
+          "relevanceLanguage": "ru",
+          "part": "snippet",
+          "maxResults": 50
+        }
+      }
+    }
+  }
+}

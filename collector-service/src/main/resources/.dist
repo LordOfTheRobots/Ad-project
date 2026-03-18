@@ -1,0 +1,7 @@
+              #tokens_in_key
+API_KEY_1=foo=10000
+          #token_name
+API_KEY_2=bar
+
+#if_you_not_write_tokens_this_will_be_used_instead
+API_KEY_DEFAULT_QUOTA=99999
